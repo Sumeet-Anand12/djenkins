@@ -9,6 +9,12 @@ pipeline {
         choice(name: 'City', choices: ['Jaipur','Mumbai','Pune' ], description: "")
     }
     stages {
+        stage('git checkout')
+        {
+            steps{
+                git branch: 'main', url: 'https://github.com/Sumeet-Anand12/djenkins.git'
+            }
+        }
         stage('Run A command') {
             steps {
                 sh '''
